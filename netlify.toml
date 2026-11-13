@@ -1,0 +1,13 @@
+# Konfigurasi Netlify untuk Duitin (Next.js)
+# Netlify membaca file ini otomatis saat build — tidak perlu setting manual.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Plugin resmi Next.js: menjalankan halaman & API di Netlify Functions
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Catatan penting: di Netlify filesystem hanya-baca, jadi WAJIB memasang
+# env var DATABASE_URL (libsql://... dari Turso) dan DATABASE_AUTH_TOKEN
+# di Site configuration -> Environment variables.
